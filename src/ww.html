@@ -1,0 +1,858 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>如何在浏览器中查看网页的HTML源代码？ | w3c笔记</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="keywords" content="查看源代码,360安全浏览器,Chrome,IE,edge,Firefox,火狐浏览器,谷歌浏览器"/>
+    <meta name="description" content="浏览html网页，查看其源代码，可以帮助我们了解该版网页的信息以及架构，每个浏览器都是允许用户查看他们访问的任何网页的HTML源代码的。以下编程狮小师妹就介绍几个常见浏览器的查看网页 HTML 源代码的方法。" />
+    <link rel="stylesheet" href="/statics/w3c/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="//www.w3cschool.cn/statics/css/w3.css" />
+    <link rel="stylesheet" type="text/css" href="//www.w3cschool.cn/statics/css/project.css" />
+    <link rel="stylesheet" href="/statics/css/article.css?v=3.8">
+    <link rel="stylesheet" href="/plugins/markdown/editormd.css?v=1.1" />
+    <link href="https://7n.w3cschool.cn/plugins/highlight/styles/default.css" rel="stylesheet" type="text/css"/>
+    <script src="https://7n.w3cschool.cn/plugins/highlight/highlight.pack.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/statics/css/minicourse/common.css?v=1.31">
+    <link rel="shortcut icon" href="https://7n.w3cschool.cn/statics/images/favicon.ico"/>
+    <link href="/statics/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://7n.w3cschool.cn/statics/modules/photoswipe/photoswipe.css" rel="stylesheet" type="text/css"/>
+    <link href="https://7n.w3cschool.cn/statics/modules/photoswipe/default-skin/default-skin.css" rel="stylesheet" type="text/css"/>
+    <!-- <script src="https://cdn.wwads.cn/js/makemoney.js" type="text/javascript"></script> -->
+</head>
+<body>
+<!-- 顶部广告 -->
+<div id="topbanner" style="display: none;">
+    <div class="close-topbox close_top_ad">
+        <i class="i-icon i-icon-close i-icon-close-thin"></i>
+    </div>
+</div>
+<!-- 右侧悬浮标广告 -->
+<div id="rfbanner" style="display: none;"></div>
+
+<!--带关键词栏头部-->
+<!--header start-->
+<div id="header_item" class="header-with-search">
+    <div id="header_index">
+        <div id="header-l">
+            <a href="//www.w3cschool.cn" title="w3cschool" class="logo"><img src="//7n.w3cschool.cn/statics/images/logonew2.png" alt="w3cschool" /></a>
+            <ul class="header-menu">
+                <li><a href="//www.w3cschool.cn/tutorial" title="编程入门教程" >编程入门教程</a></li>
+                <li><a href="//www.w3cschool.cn/courses/" title="编程课程" >编程课程</a></li>
+                <li><a href="//www.w3cschool.cn/codecamp/" title="编程实战">编程实战</a></li>
+                <li><a href="//www.w3cschool.cn/exam/" title="编程题库" >编程题库</a></li>
+                <li><a href="//123.w3cschool.cn/webtools" target="_blank" title="w3cschool在线工具集合">在线工具</a></li>
+                <li><a href="//www.w3cschool.cn/vip?fcode=headermenu" title="VIP会员" class="header-menu-vip ">VIP会员<i class="hot-icon">
+                    双12</i></a></li>
+            </ul>
+        </div>
+
+        <div class="fr h-right">
+            <div class="fl mobile">
+                <a class="link" href="//www.w3cschool.cn/download" target="_blank" title="App下载">
+                    <i class="i-icon i-icon-mobile"></i>App下载
+                </a>
+                <div class="dropdown">
+                    <div class="dropdown-inner">
+                        <div class="text-center dropdown-content">
+                            <div class="qrcode">
+                                <img src="//7n.w3cschool.cn/statics/images/w3c/app-qrcode2.png" alt="APP二维码" width="150" height="150">
+                                <p>扫码下载编程狮APP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fl sig-box">
+                <div><a class="link" href="//www.w3cschool.cn/register?refer=/">注册</a><span class="sep">|</span><a class="link" href="//www.w3cschool.cn/login?refer=/">登录</a></div>
+            </div>
+        </div>
+
+        <div class="fr searchbox">
+            <form action="/search" target="_self">
+                <input type="text" name="w" class="box" id="searched_content" placeholder="输入关键字搜索..."/>
+                <button type="submit" class="button"></button>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="navfirst_item">
+    <div id="navfirst">
+        <ul id="menu">
+            <li><a href="//www.w3cschool.cn" title="w3cschool首页"><i class="home-icon img-icon"></i>首页</a></li>
+            <li><a href="//www.w3cschool.cn/html/" title="HTML教程">HTML</a></li>
+            <li><a href="//www.w3cschool.cn/css/" title="CSS教程">CSS</a></li>
+            <li><a href="//www.w3cschool.cn/javascript/" title="Javascript教程">Javascript</a></li>
+            <li><a href="//www.w3cschool.cn/jquery/" title="Jquery教程">Jquery</a></li>
+            <li><a href="//www.w3cschool.cn/bootstrap/" title="Bootstrap教程">Bootstrap</a></li>
+            <li><a href="//www.w3cschool.cn/php/" title="PHP教程">PHP</a></li>
+            <li><a href="//www.w3cschool.cn/java/" title="Java教程">Java</a></li>
+            <li><a href="//www.w3cschool.cn/python3/" title="Python3教程">Python3</a></li>
+            <li><a href="//www.w3cschool.cn/mysql/" title="MySQL教程">MySQL</a></li>
+            <li><a href="//www.w3cschool.cn/sql/" title="SQL教程">SQL</a></li>
+            <li><a href="//www.w3cschool.cn/json/" title="JSON教程">Json</a></li>
+            <!--<li><a href="//www.w3cschool.cn/c/" title="C教程">C</a></li>-->
+            <li><a href="//www.w3cschool.cn/weixinapp/" title="微信小程序开发文档">微信小程序</a></li>
+            <li><a href="//123.w3cschool.cn/webtools" target="_blank" title="W3Cschool在线工具集合">在线工具</a></li>
+            <li><a href="//123.w3cschool.cn" target="_blank" title="W3Cschool极客导航">极客导航</a></li>
+            <!--<li><a href="//www.w3cschool.cn/position/positionList" title="职业路线">职业路线</a></li>-->
+            <li><a href="//www.w3cschool.cn/tutorial" title="编程入门教程">更多...</a></li>
+        </ul>
+    </div>
+</div>
+<script>
+var apppath = '/article/39055478.html';
+var domain  = '//www.w3cschool.cn';
+
+</script>
+<!--header end-->
+<!-- 移动端头部 -->
+<style type="text/css">
+.header-mobile-item { position: -webkit-sticky; position: sticky; top: 0; left: 0; height: 2.5rem; z-index: 9; }
+.header-mobile {
+display: -webkit-flex;
+display: flex;
+-webkit-align-items: center;
+align-items: center;
+-webkit-justify-content: space-between;
+justify-content: space-between;
+height: 2.5rem;
+padding: 0 .6rem;
+background-color: #fff;
+}
+.header-mobile .header-logo {
+display: -webkit-flex;
+display: flex;
+-webkit-align-items: center;
+align-items: center;
+-webkit-justify-content: space-between;
+justify-content: space-between;
+width: auto;
+height: 1.4rem;
+padding-right: .5rem;
+}
+.header-mobile .header-logo a {
+display: -webkit-flex;
+display: flex;
+-webkit-align-items: center;
+align-items: center;
+font-size: .75rem;
+color: #333;
+padding-right: 0.5rem;
+}
+.header-mobile .header-logo .mobile-logo {
+display: inline-block;
+/* width: 1.8rem;  */
+width: 6.8rem;
+height: 1.8rem;
+/* background: url("https://7nsts.w3cschool.cn/images/w3c/app-logo.png?t=20190306") no-repeat center center/contain;  */
+background: url("//7n.w3cschool.cn/statics/images/logonew2.png") no-repeat center center/contain;
+margin-right: 0.5rem;
+}
+.header-mobile .header-logo .mobile-intro {
+font-size: 0.75rem;
+font-weight: 600;
+}
+.header-mobile .header-navbar {
+display: -webkit-flex;
+display: flex;
+-webkit-align-items: center;
+align-items: center;
+}
+.header-mobile .header-btn {
+display: -webkit-flex;
+display: flex;
+-webkit-align-items: center;
+align-items: center;
+-webkit-justify-content: space-between;
+justify-content: space-between;
+width: auto;
+height: 1.4rem;
+/* padding: 0 .5rem;  */
+padding: 0 1rem;
+background-color: rgba(237,124,48,0.1);
+font-size: .65rem;
+color: #fe6a00;
+border-radius: 1.0rem;
+}
+.header-mobile .header-btn a {
+color: #fe6a00;
+font-weight: 700;
+}
+.header-mobile .header-btn .spacing {
+padding: 0 0.25rem;
+}
+.header-mobile .header-avator {
+width: 1.4rem;
+height: 1.4rem;
+margin-left: 0.5rem;
+}
+.header-mobile .header-avator img {
+width: 100%;
+height: 100%;
+border-radius: 50%;
+}
+.vip-sicon {
+display: inline-block;
+width: 24px;
+height: 24px;
+margin-left: 0.25rem;
+vertical-align: middle;
+background-size: 24px 24px;
+}
+.vip-sicon {
+background-image: url("//7nsts.w3cschool.cn/images/w3c/vip-sicon0.png");
+}
+.vip-sicon1 {
+background-image: url("//7nsts.w3cschool.cn/images/w3c/vip-sicon1.png");
+}
+.vip-sicon2 {
+background-image: url("//7nsts.w3cschool.cn/images/w3c/vip-sicon2.png");
+}
+.vip-sicon3 {
+background-image: url("/statics/images/vip/all-situations-vip.png");
+height: 30px;
+background-size: 24px;
+}
+</style>
+<div class="header-mobile-item">
+    <div class="header-mobile">
+        <div class="header-logo">
+            <a href="/" external>
+                <span class="mobile-logo"></span>
+            </a>
+            <a href="/learn" external>
+                <span class="mobile-intro">课程</span>
+            </a>
+            <a href="https://m.w3cschool.cn/tutorial" external>
+                <span class="mobile-intro">教程</span>
+            </a>
+            <a href="/vip?fcode=learn" external>
+                <span class="mobile-intro">VIP</span>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<div id="wrapper">
+    <nav class="bread-nav">
+        <div class="current-position">
+            <img src="//www.w3cschool.cn/statics/yimages/positionred.png">
+            <span class="ellip">
+<a href="//www.w3cschool.cn">首页</a>
+/&nbsp;<a href="//www.w3cschool.cn/article">w3c笔记</a>
+/&nbsp;<span>如何在浏览器中查看网页的HTML源代码？</span>
+</span>
+        </div>
+    </nav>
+    <main class="article-main">
+        <article class="article-main-fl">
+            <div class="news-content article-boxshadow" data-kename="39055478">
+                <div class="news-page article-page">
+                    <h1 class="article-title">如何在浏览器中查看网页的HTML源代码？</h1>
+                    <div class="article-group">
+                        <div class="article-group-fl">
+                            <span class="source-btn">猿友</span>
+                            <span class="v-line">2021-01-23 19:28:21</span>
+                            <span class="v-line viewcount">浏览数 (6958)</span>
+                        </div>
+                        <div class="article-group-fr">
+                            <span class="v-line collect-btn"><a id="feedBack" href="javascript:;">反馈</a></span>
+                        </div>
+                    </div>
+                    <hr style="height:1px;border: none;border-top:1px solid #ddd;margin:4px 0;">
+                    <div id="articleContent" class="content-intro view-box markdown-body editormd-preview-container">
+                        <div class="content" ><p>浏览html网页，查看其源代码，可以帮助我们了解该版网页的信息以及架构，每个浏览器都是允许用户查看他们访问的任何网页的HTML源代码的。以下编程狮小师妹就介绍几个常见浏览器的查看网页 HTML 源代码的方法。</p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h3>谷歌浏览器 Google Chrome</h3>
+                            <p></p>
+                            <h4>仅查看源代码</h4>
+                            <p>
+                                <strong>方法一</strong></p>
+                            <p>
+                                要仅查看源代码，请按计算机键盘上的<code>Ctrl</code>+<code>U</code>。</p>
+                            <p>
+                                <strong>方法二</strong></p>
+                            <p>
+                                右键单击网页的空白部分，然后从出现的弹出菜单中选择“<strong>查看网页源代码(V)</strong>”。</p>
+                            <p>
+                                <img src="https://atts.w3cschool.cn/attachments/image/20210123/1611401043817433.png" alt="" /></p>
+                            <p></p>
+                            <h4>查看包含元素的页面源</h4>
+                            <p></p>
+                            <ol>
+                                <li>打开 Chrome 浏览器，然后浏览要查看其源代码的网页。</li>
+                                <li>点击浏览器窗口右上角的“<strong>自定义及控制Google Chrome”</strong> <img src="https://www.computerhope.com/issues/pictures/chrome-menu-icon.jpg" alt="Chrome设置图标" />图标。</li>
+                                <li>在出现的下拉菜单中，选择<strong>更多工具(L)</strong>，然后选择<strong>开发者工具(D)</strong>（快捷键：<code>Ctrl</code>+<code>Shift</code>+<code>I</code>）。</li>
+                                <li>单击屏幕底部出现的新部分左上角的“<strong>元素(Elements)”</strong>选项卡。</li>
+                            </ol>
+                            <p>
+                                <img src="https://atts.w3cschool.cn/attachments/image/20210123/1611401071270334.png" alt="" /></p>
+                            <p></p>
+                            <blockquote>
+                                <p><strong>提示：</strong>
+                                    <br>
+                                    <br> 在 Chrome 中，按 <code>F12</code> 或 <code>Ctrl</code>+ <code>Shift</code>+<code>I</code> 也会调出交互式开发人员工具。此工具提供了与源代码和 <a href="https://www.w3cschool.cn/css/" target="_blank">CSS </a> 设置的更多交互，使用户可以查看代码中的更改如何立即影响网页。</p>
+                            </blockquote>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h3>火狐浏览器 Mozilla Firefox</h3>
+                            <p></p>
+                            <h4>仅查看源代码</h4>
+                            <p>
+                                <strong>方法一</strong></p>
+                            <p>
+                                要仅查看源代码，请按计算机键盘上的 <code>Ctrl</code>+<code>U</code>。</p>
+                            <p>
+                                <strong>方法二</strong></p>
+                            <p>
+                                右键单击网页的空白部分，然后从出现的弹出菜单中选择“<strong>查看页面源代码(V)</strong>”。</p>
+                            <p>
+                                <img src="https://atts.w3cschool.cn/attachments/image/20210123/1611401087989047.png" alt="" /></p>
+                            <p></p>
+                            <h4>查看包含元素的页面源</h4>
+                            <p></p>
+                            <ol>
+                                <li>打开 Firefox 并浏览您要查看其源代码的网页。</li>
+                                <li>单击屏幕右上角的<strong>菜单</strong> <img src="https://www.computerhope.com/issues/pictures/firefox-menu-icon.jpg" alt="Firefox菜单图标" />图标。</li>
+                                <li>在下拉菜单中选择<strong>Web开发者</strong>，然后从展开的菜单中选择<strong>切换工具箱</strong>（快捷键：<code>Ctrl</code>+ <code>Shift</code>+<code>I</code>）。</li>
+                                <li>单击显示在屏幕底部的部分左上角的“<strong>查看器”</strong>选项卡。</li>
+                            </ol>
+                            <p>
+                                <img src="https://atts.w3cschool.cn/attachments/image/20210123/1611401102475611.png" alt="" /></p>
+                            <p></p>
+                            <blockquote>
+                                <p><strong>提示：</strong>
+                                    <br>
+                                    <br> 在 Firefox 中，按 F12 或 <code>Ctrl</code>+ <code>Shift</code>+<code>I</code>也会调出交互式开发人员工具。该工具提供了与源代码和 CSS 设置的交互，使用户可以实时查看代码中的更改如何影响网页。</p>
+                            </blockquote>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h4>查看页面的部分源代码</h4>
+                            <p></p>
+                            <ol>
+                                <li>突出显示网页中您要查看其源代码的部分。</li>
+                                <li>右键单击突出显示的部分，然后选择<strong>检查元素(Q)</strong>。</li>
+                            </ol>
+                            <p></p>
+                            <blockquote>
+                                <p><strong>提示：</strong>
+                                    <br>
+                                    <br> 您可以使用 Firebug 附加组件查看和编辑页面的源代码，并通过浏览器实时查看更改。</p>
+                            </blockquote>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h3>微软 Edge</h3>
+                            <p></p>
+                            <h4>仅查看源代码</h4>
+                            <p>
+                                <strong>方法一</strong></p>
+                            <p>
+                                要仅查看源代码，请按计算机键盘上的<code>Ctrl</code>+<code>U</code>。</p>
+                            <p>
+                                <strong>方法二</strong></p>
+                            <p>
+                                右键单击网页的空白部分，然后从出现的弹出菜单中选择“<strong>查看页面源代码(V)</strong>”。</p>
+                            <p>
+                                <img src="https://atts.w3cschool.cn/attachments/image/20210123/1611401120503564.png" alt="" /></p>
+                            <p></p>
+                            <h3>查看包含元素的页面源</h3>
+                            <p></p>
+                            <ol>
+                                <li>打开 Microsoft Edge 并浏览您要查看其源代码的网页。</li>
+                                <li>点击屏幕右上角的<strong>设置和更多</strong> <img src="https://www.computerhope.com/issues/pictures/edge-more-icon.jpg" alt="边缘更多图标" />图标。</li>
+                                <li>将鼠标移到<strong>更多工具(L)</strong>在下拉菜单中，在展开的菜单选择<strong>开发人员工具(D)</strong>。</li>
+                                <li>单击屏幕右侧出现的窗口顶部的“<strong>元素(Elements)”</strong>选项卡。</li>
+                            </ol>
+                            <p>
+                                <img src="https://atts.w3cschool.cn/attachments/image/20210123/1611401139263956.png" alt="" /></p>
+                            <p></p>
+                            <blockquote>
+                                <p><strong>提示：</strong>
+                                    <br>
+                                    <br> 在Microsoft Edge中，按F12或 <code>Ctrl</code>+ <code>Shift</code>+<code>I</code> 也会调出交互式开发人员工具。该工具提供了与源代码和 CSS 设置的交互，使用户可以实时查看代码中的更改如何影响网页。</p>
+                            </blockquote>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h3>IE浏览器 Microsoft Internet Explorer</h3>
+                            <p></p>
+                            <h4>仅查看源代码</h4>
+                            <p>
+                                <strong>方法一</strong></p>
+                            <p>
+                                要仅查看源代码，请按计算机键盘上的<code>Ctrl</code>+<code>U</code>。</p>
+                            <p>
+                                <strong>方法二</strong></p>
+                            <p>
+                                右键单击网页的空白部分，然后从出现的弹出菜单中选择<strong>查看源(V)</strong>。</p>
+                            <p>
+                                <img src="https://atts.w3cschool.cn/attachments/image/20210123/1611401160983947.png" alt="" /></p>
+                            <p></p>
+                            <h3>查看包含元素的页面源</h3>
+                            <p></p>
+                            <ol>
+                                <li>打开 Internet Explorer 并浏览您要查看其源代码的网页。</li>
+                                <li>单击右上角的<strong>工具</strong> <img src="https://www.computerhope.com/issues/pictures/ie-tools.jpg" alt="互联网浏览器工具图标" />。</li>
+                                <li>从下拉菜单中选择<strong>F12开发人员工具</strong>。</li>
+                                <li>单击开发人员工具菜单左上角的 <strong>DOM 资源管理器</strong> 选项卡。</li>
+                            </ol>
+                            <p>
+                                <img src="https://atts.w3cschool.cn/attachments/image/20210123/1611401179849084.png" alt="" /></p>
+                            <p></p>
+                            <blockquote>
+                                <p><strong>提示：</strong>
+                                    <br>
+                                    <br> 在 Internet Explorer 中，按 F12 会弹出 DOM 工具。该工具提供了与源代码和 CSS 设置的交互，使用户可以查看代码中的更改如何立即影响网页。</p>
+                            </blockquote>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h3>360安全浏览器</h3>
+                            <p></p>
+                            <h4>仅查看源代码</h4>
+                            <p>
+                                <strong>方法一</strong></p>
+                            <p>
+                                要仅查看源代码，请按计算机键盘上的<code>Ctrl</code>+<code>U</code>。</p>
+                            <p>
+                                <strong>方法二</strong></p>
+                            <p>
+                                右键单击网页的空白部分，然后从出现的弹出菜单中选择“<strong>查看网页源代码(V)</strong>”。</p>
+                            <p>
+                                <img src="https://atts.w3cschool.cn/attachments/image/20210123/1611401210611617.png" alt="" /></p>
+                            <p></p>
+                            <h4>查看包含元素的页面源</h4>
+                            <p></p>
+                            <ol>
+                                <li>打开 360 安全浏览器，然后浏览要查看其源代码的网页。</li>
+                                <li>点击浏览器窗口右上角的<strong>打开菜单</strong><img src="https://atts.w3cschool.cn/attachments/image/20210123/1611401229114164.png" alt="" />图标。</li>
+                                <li>在出现的下拉菜单中，选择<strong>更多工具(L)</strong>，然后选择<strong>开发者工具(D)</strong>（快捷键：<code>Ctrl</code>+<code>Shift</code>+<code>I</code>）。</li>
+                                <li>单击屏幕底部出现的新部分左上角的“<strong>元素(Elements)”</strong>选项卡。</li>
+                            </ol>
+                            <p>
+                                <img src="https://atts.w3cschool.cn/attachments/image/20210123/1611401248234535.png" alt="" /></p>
+                            <p></p>
+                            <blockquote>
+                                <p><strong>提示：</strong>
+                                    <br>
+                                    <br> 在 360 安全浏览器中，按 <code>F12</code> 或 <code>Ctrl</code>+ <code>Shift</code>+<code>I</code> 也会调出交互式开发者工具。此工具提供了与源代码和 <a href="https://www.w3cschool.cn/css/" target="_blank">CSS </a> 设置的更多交互，使用户可以查看代码中的更改如何立即影响网页。</p>
+                            </blockquote>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h3>如何关闭源代码页或工具</h3>
+                            <p>
+                                查看完网页上的源代码后，您可能想要退出或关闭它。关闭源代码取决于您用来打开源代码的方法。</p>
+                            <p></p>
+                            <ul>
+                                <li>如果您使用了<code>Ctrl</code>+<code>U</code> 方法（Edge 除外）或右键单击方法，请<strong>关闭</strong>在浏览器窗口顶部打开的<strong>新选项卡</strong>。</li>
+                                <li>如果您使用过开发人员方法（使用 F12 或<code>Ctrl</code>+ <code>Shift</code>+<code>I</code>），请再次按相同的键，或单击<strong>工具窗口</strong><img src="https://www.computerhope.com/issues/pictures/edge-remove-x.gif" alt="边缘去除x" />右上角的图标。</li>
+                            </ul>
+                            <p></p>
+                            <h3>使用在线工具查看源代码</h3>
+                            <p>
+                                除了使用浏览器外，还有一些在线工具可让您查看任何网页的源代码。这些工具可能会有所帮助，因为大多数工具都可以格式化，样式化和突出显示代码，以使其易于阅读。</p>
+                            <p></p>
+                            <p></p>
+                            <p>
+                                以上就是编程狮W3Cschool为你整理的关于《<a href="https://www.w3cschool.cn/article/39055478.html">如何在浏览器中查看网页的HTML源代码？</a>》的全部内容，希望对你有所帮助~</p></div>
+                    </div>
+                </div>
+                <!-- 额外新增 占位 -->
+                <action class="content-extra">
+                    <div class="content-extra-qrcode">
+                        <a href="https://mp.weixin.qq.com/s?__biz=MzIyMTQ4OTM3NQ==&amp;mid=2247504012&amp;idx=1&amp;sn=a9b6dde8e4a1ebc480ace90d64c97693&amp;chksm=e839613cdf4ee82ac8cbeecd3211f64dffbf127dd19e7e7db176a42624bee6bab9175223358c#rd" target="_black">
+                            <img src="https://atts.w3cschool.cn/articleendqc.png?t=0.3" width="100%">
+                        </a>
+                    </div>
+                    <div class="content-extra-label">
+                        <a href="/article?tid=2121" target="_blank">HTML</a>
+                        <a href="/article?tid=2123" target="_blank">CSS</a>
+                    </div>
+                    <div class="content-extra-thumbsUp">
+                        <div id="handleThumbsUp" class="thumb"></div>
+                        <p><span id="likeNum"> 2 </span>人点赞</p>
+                    </div>
+                </action>
+            </div>
+            <nav class="article-main-switch clearfix">
+                <div class="switch-prev">上一篇：<a href="/article/24766380.html?headopt=&tpl=&pf=&nocache=0">Google Analytics（分析）帮助Web开发人员进行UI / UX设计的5种方法</a></div>
+                <div class="switch-next">下一篇：<a href="/article/22661944.html?headopt=&tpl=&pf=&nocache=0">前端vue和bootstrap区别</a></div>
+            </nav>
+        </article>
+        <aside id="rightLink" class="article-main-fr">
+            <nav class="aside-article" style="margin-top: 0;">
+                <div class="aside-head">
+                    <div class="aside-head-title">
+                        <h2 class="selected-title">相关文章</h2>
+                    </div>
+                    <a class="relevant-head-more" href="/article" target="_blank">更多»</a>
+                </div>
+                <div class="aside-article-main ">
+                    <a class="relevant-content-item" title="W3Cschool前端开发入门学习路线2022" href="/article/63914971.html?fcode=article_" target="_blank"><span class="ellip">W3Cschool前端开发入门学习路线2022</span></a>
+                    <a class="relevant-content-item" title="HTML如何设置字体样式？" href="/article/79990843.html?fcode=article_" target="_blank"><span class="ellip">HTML如何设置字体样式？</span></a>
+                    <a class="relevant-content-item" title="HTML如何让文字居中？附两种方式" href="/article/31152445.html?fcode=article_" target="_blank"><span class="ellip">HTML如何让文字居中？附两种方式</span></a>
+                    <a class="relevant-content-item" title="编程狮零基础小白学前端系列课程学习路径" href="/article/28139305.html?fcode=article_" target="_blank"><span class="ellip">编程狮零基础小白学前端系列课程学习路径</span></a>
+                    <a class="relevant-content-item" title="2022年快速成为前端工程师，各个阶段必须掌握的基本技能汇总" href="/article/6537430.html?fcode=article_" target="_blank"><span class="ellip">2022年快速成为前端工程师，各个阶段必须掌握的基本技能汇总</span></a>
+                    <a class="relevant-content-item" title="给你这么多学习资源，为什么你会 “收藏不看，已成习惯？”" href="/article/5068114.html?fcode=article_" target="_blank"><span class="ellip">给你这么多学习资源，为什么你会 “收藏不看，已成习惯？”</span></a>
+                    <a class="relevant-content-item" title="W3Cschool 热门编程语言排行榜 2020年 10月 TOP10" href="/article/44760098.html?fcode=article_" target="_blank"><span class="ellip">W3Cschool 热门编程语言排行榜 2020年 10月 TOP10</span></a>
+                    <a class="relevant-content-item" title="HTML编辑器有哪些，HTML编辑器推荐" href="/article/5a8aca22a0c87d.html?fcode=article_" target="_blank"><span class="ellip">HTML编辑器有哪些，HTML编辑器推荐</span></a>
+                    <a class="relevant-content-item" title="零基础自学前端到达到什么水平才能找工作？" href="/article/51125035.html?fcode=article_" target="_blank"><span class="ellip">零基础自学前端到达到什么水平才能找工作？</span></a>
+                    <a class="relevant-content-item" title="初学者必看的web前端开发学习路线,干货满满！" href="/article/49146914.html?fcode=article_" target="_blank"><span class="ellip">初学者必看的web前端开发学习路线,干货满满！</span></a>
+                </div>
+            </nav>
+            <nav class="aside-hotCourse">
+                <div class="aside-head">
+                    <div class="aside-head-title">
+                        <h2 class="selected-title">热门手册</h2>
+                    </div>
+                    <a class="relevant-head-more" href="/tutorial" target="_blank">更多»</a>
+                </div>
+                <div class="aside-hotCourse-main">
+                    <a class="hotCourse-option-wrap" href="/python3/?fcode=article_" target="_blank" title="Python3 教程">
+                        <div class="hotCourse-option"><span class="ellip">Python3 教程</span></div>
+                    </a>
+                    <a class="hotCourse-option-wrap" href="/vuejs2/?fcode=article_" target="_blank" title="VUE.js2.0 教程">
+                        <div class="hotCourse-option"><span class="ellip">VUE.js2.0 教程</span></div>
+                    </a>
+                    <a class="hotCourse-option-wrap" href="/html/?fcode=article_" target="_blank" title="HTML 教程">
+                        <div class="hotCourse-option"><span class="ellip">HTML 教程</span></div>
+                    </a>
+                    <a class="hotCourse-option-wrap" href="/java/?fcode=article_" target="_blank" title="Java 教程">
+                        <div class="hotCourse-option"><span class="ellip">Java 教程</span></div>
+                    </a>
+                    <a class="hotCourse-option-wrap" href="/php/?fcode=article_" target="_blank" title="PHP 教程">
+                        <div class="hotCourse-option"><span class="ellip">PHP 教程</span></div>
+                    </a>
+                    <a class="hotCourse-option-wrap" href="/weixinapp/?fcode=article_" target="_blank" title="微信小程序开发文档">
+                        <div class="hotCourse-option"><span class="ellip">微信小程序开发文档</span></div>
+                    </a>
+                    <a class="hotCourse-option-wrap" href="/wkspring/?fcode=article_" target="_blank" title="Spring 教程">
+                        <div class="hotCourse-option"><span class="ellip">Spring 教程</span></div>
+                    </a>
+                    <a class="hotCourse-option-wrap" href="/javascript/?fcode=article_" target="_blank" title="JavaScript 教程">
+                        <div class="hotCourse-option"><span class="ellip">JavaScript 教程</span></div>
+                    </a>
+                    <a class="hotCourse-option-wrap" href="/css/?fcode=article_" target="_blank" title="CSS 教程">
+                        <div class="hotCourse-option"><span class="ellip">CSS 教程</span></div>
+                    </a>
+                    <a class="hotCourse-option-wrap" href="/jquery/?fcode=article_" target="_blank" title="jQuery 教程">
+                        <div class="hotCourse-option"><span class="ellip">jQuery 教程</span></div>
+                    </a>
+                    <a class="hotCourse-option-wrap" href="/sql/?fcode=article_" target="_blank" title="SQL 教程">
+                        <div class="hotCourse-option"><span class="ellip">SQL 教程</span></div>
+                    </a>
+                    <a class="hotCourse-option-wrap" href="/c/?fcode=article_" target="_blank" title="C 教程">
+                        <div class="hotCourse-option"><span class="ellip">C 教程</span></div>
+                    </a>
+                </div>
+            </nav>
+            <nav class="aside-relevant-course relevant-course">
+                <div class="aside-head">
+                    <div class="aside-head-title">
+                        <h2 class="selected-title">相关课程</h2>
+                    </div>
+                    <a class="relevant-head-more" href="/courses" target="_blank">更多»</a>
+                </div>
+                <div class="aside-relevant-main">
+                    <a class="relevant-main-wrap" href="/minicourse/play/htmlcourse?fcode=article_" target="_blank">
+                        <div class="relevant-main-cover">
+                            <img src="https://atts.w3cschool.cn/attachments/cover/cover_htmlcourse.png?t=1669875241" width="100%">
+                        </div>
+                        <div class="relevant-main-content">
+                            <h3 class="multi-ellipsis-l2">HTML入门课程(含HTML5)</h3>
+                            <span>141736人参与</p>
+                        </div>
+                    </a>
+                    <a class="relevant-main-wrap" href="/minicourse/play/csscourse?fcode=article_" target="_blank">
+                        <div class="relevant-main-cover">
+                            <img src="https://atts.w3cschool.cn/attachments/cover/cover_csscourse.png?t=1669875184" width="100%">
+                        </div>
+                        <div class="relevant-main-content">
+                            <h3 class="multi-ellipsis-l2">CSS 入门课程</h3>
+                            <span>39451人参与</p>
+                        </div>
+                    </a>
+                    <a class="relevant-main-wrap" href="/minicourse/play/flexcolumn?fcode=article_" target="_blank">
+                        <div class="relevant-main-cover">
+                            <img src="https://atts.w3cschool.cn/attachments/cover/cover_flexcolumn.png?t=1625129207" width="100%">
+                        </div>
+                        <div class="relevant-main-content">
+                            <h3 class="multi-ellipsis-l2">前端专栏：常用布局完全指南</h3>
+                            <span>2256人参与</p>
+                        </div>
+                    </a>
+                    <a class="relevant-main-wrap" href="/minicourse/play/my_qianduan?fcode=article_" target="_blank">
+                        <div class="relevant-main-cover">
+                            <img src="https://atts.w3cschool.cn/attachments/cover/cover_my_qianduan.jpeg?t=1629341271" width="100%">
+                        </div>
+                        <div class="relevant-main-content">
+                            <h3 class="multi-ellipsis-l2">HTML5+CSS3零基础快速入门</h3>
+                            <span>6765人参与</p>
+                        </div>
+                    </a>
+                    <a class="relevant-main-wrap" href="/minicourse/play/html5_job_my?fcode=article_" target="_blank">
+                        <div class="relevant-main-cover">
+                            <img src="https://atts.w3cschool.cn/attachments/cover/cover_html5_job_my.png?t=1665741429" width="100%">
+                        </div>
+                        <div class="relevant-main-content">
+                            <h3 class="multi-ellipsis-l2">HTML5基础入门</h3>
+                            <span>10816人参与</p>
+                        </div>
+                    </a>
+                    <a class="relevant-main-wrap" href="/minicourse/play/css_job_my?fcode=article_" target="_blank">
+                        <div class="relevant-main-cover">
+                            <img src="https://atts.w3cschool.cn/attachments/cover/cover_css_job_my.png?t=1634280029" width="100%">
+                        </div>
+                        <div class="relevant-main-content">
+                            <h3 class="multi-ellipsis-l2">CSS3入门与实战</h3>
+                            <span>2017人参与</p>
+                        </div>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+    </main>
+    <!-- 图片放大根元素，必须有类 pswp -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- 背景 -->
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <!-- 幻灯片容器，在DOM中保留其中3个以节省内存，不要修改 -->
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <!-- <button class="pswp__button pswp__button--share" title="Share"></button> -->
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="readLimitTip" class="tip">
+    <div class="tip-mask"></div>
+    <div class="tip-box">
+    <div class="tip-box-title">温馨提示</div>
+    <div class="tip-box-des">下载编程狮App，免费阅读超1000+编程语言教程</div>
+    <div class="tip-box-btn">
+    <div class="cancel">取消</div>
+    <div class="confirm">确定</div>
+    </div>
+    </div>
+    </div> -->
+</div>
+</body>
+<!-- footer start  -->
+<div id="footer_item">
+    <div id="footer">
+        <div class="footer-box">
+            <div class="footer-title">网站相关</div>
+            <ul class="footer-items">
+                <li><a href="//www.w3cschool.cn/about/about.html">关于w3cschool</a></li>
+                <li><a href="//www.w3cschool.cn/about/join.html">加入我们</a></li>
+                <li><a href="//www.w3cschool.cn/sitemap/">网站地图</a></li>
+                <li><a href="//www.w3cschool.cn/archives/" title="文章存档">文章存档</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <div class="footer-title">常用链接</div>
+            <ul class="footer-items">
+                <li><a href="//www.w3cschool.cn/codecamp/" target="_blank" title="编程实战">编程实战</a></li>
+                <li><a href="https://wenjuan.feishu.cn/m/cfm?t=sn8KOaaRthFi-w2n0" target="_blank">课程合作</a></li>
+                <li><a href="//www.w3cschool.cn/download#downloadpc" target="_blank" title="w3cschool离线版下载">w3cschool离线下载</a></li>
+                <li><a href="https://m.w3cschool.cn/" target="_blank" title="w3cschool手机版">w3cschool手机版</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <div class="footer-title">官方APP</div>
+            <ul class="footer-items">
+                <li><a href="https://m.w3cschool.cn/download?fcode=footer_w3cschool_app" target="_blank" title="w3cschool编程狮">w3cschool编程狮</a></li>
+                <li><a href="//www.w3cschool.cn/pythonclass/" target="_blank" title="Python编程狮">Python编程狮</a></li>
+                <li><a href="//www.w3cschool.cn/javaclass/" target="_blank" title="Java编程狮">Java编程狮</a></li>
+                <li><a href="https://m.w3cschool.cn/toolsdownload?fcode=footer_tools_app" target="_blank" title="编程狮工具箱">编程狮工具箱</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <div class="footer-title">联系我们</div>
+            <ul class="footer-items">
+                <li><a href="https://www.w3cschool.cn/w3cschool/question-10232085.html" target="_blank" title="常见问题QA">常见问题QA</a></li>
+                <li><a href="https://jq.qq.com/?_wv=1027&amp;k=5mjhkIY" ref="nofollow" target="_blank">官方QQ群：668469541</a></li>
+                <li><a href="//wpa.qq.com/msgrd?v=3&amp;uin=3532917531&amp;site=qq&amp;menu=yes" ref="nofollow" target="_blank">商务合作QQ：3532917531</a></li>
+                <li><a href="javascript:;">企业采购微信号：Marlboro90<div class="service-qrcode"><img src="//7n.w3cschool.cn/statics/images/public/business-wechat-xsm.jpg?t=1" width="100%"></div></a></li>
+            </ul>
+        </div>
+
+        <!-- 这里是hjf加的 -->
+        <div class="footer-box">
+            <div class="tcode"><img src="//7n.w3cschool.cn/statics/images/w3c/app-qrcode2.png" alt="加入App二维码" width="100" height="100"></div>
+            <p class="tcode-txt">下载App</p>
+        </div>
+
+        <div class="footer-box">
+            <div class="tcode"><img src="//atts.w3cschool.cn/w3cschool_fwh.png" alt="微信服务号" width="100" height="100"></div>
+            <p class="tcode-txt">关注公众号</p>
+        </div>
+
+    </div>
+    <div class="footer-bottom">
+        <p>Copyright&copy;2021&nbsp;<a href="//www.w3cschool.cn" target="_blank" title="w3cschool">w3cschool</a>编程狮<span>|</span><a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow" class="footer-record">闽ICP备15016281号-3</a><span>|</span><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020302033924" target="_blank" rel="nofollow"><i class="beian"></i>闽公网安备35020302033924号</a></p>
+        <p>违法和不良信息举报电话：173-0602-2364<span>|</span><a href="mailto:jubao@eeedong.com">举报邮箱：jubao@eeedong.com</a></p>
+    </div>
+</div>
+
+
+<div id="dialogBackground" class="dialogBackground"></div>
+
+
+
+<div class="feedback-Box" style="display: none;">
+    <div class="feedback-Box-content" style="width: 662px;">
+        <div class="feedback-Box-top">
+            <span class="feedback-Box-title">意见反馈</span>
+            <span onclick="closeDialogBox(this)" class="feedback-Box-close">X</span>
+        </div>
+        <ul>
+            <li class="feedback-box" >
+                <div id="feedbackRadio" type="radio" name="feedbackType" data-value="0"> 反馈类型：
+                    <select id="selecttype">
+                        <option value="0" >产品建议</option>
+                        <option value="1" >课程内容</option>
+                        <option value="2" >bug提交</option>
+                        <option value="3" >其他问题</option>
+                    </select>
+                </div>
+                <textarea  name="reportInfo" id="elmaaa" class="feedback-text" rows="15" placeholder="请留下您宝贵的意见反馈吧。"></textarea>
+                <p>联系方式：</p>
+                <input type="text" placeholder="留个联系方式呗..." name="reportAddress" class="radio-text" id="reportAddress" style="height: 30px;width: 200px;">
+            </li>
+        </ul>
+        <button class="search-s" onclick="dialogSubmit(this)" id="reportSubmit">提交</button>
+    </div>
+</div>
+
+<div id="note-start" style="display: none"></div>
+
+<div id="detail" style="display:none;">
+    <div id="note-Dialog" class="note-Dialog" >
+        <div class="note-Box-content">
+            <div class="ntitlebox">
+                <input type="text" placeholder="" name="ntitle" class="ntitle" id="ntitle" >
+            </div>
+            <div id="editorarea">
+                <textarea  name="ncontent" id="ncontent" class="ncontent" rows="15" placeholder="" style="width: 700px;height:200px;overflow:auto;" ></textarea>
+            </div>
+            <p></p>
+            <a class="closenote" href="/my/note" target="_blank" >查看完整版笔记</a>
+            <button class="notesubmit"  id="notesubmit">保存</button>
+            <button class="notebtn pull-right closenote" style="margin:20px 0" >关闭</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 侧边工具栏：判断完页面是否植入美洽后再显示，防止闪烁 -->
+<div id="toolbar" style="display: none;">
+    <div class="tool app">
+        <a href="/download" target="_blank" class="tool-inner">
+            <div class="tool-icon"></div>
+            <div>App下载</div>
+        </a>
+        <div class="tool-popover">
+            <div class="tool-popover-inner">
+                <div class="img"><img src="//7n.w3cschool.cn/statics/images/w3c/app-qrcode2.png" alt="App下载" width="140" height="140"></div>
+                <p>扫描二维码</p>
+                <p>下载编程狮App</p>
+            </div>
+        </div>
+    </div>
+    <div class="tool wechat">
+        <div class="tool-inner">
+            <div class="tool-icon"></div>
+            <div>关注有礼</div>
+        </div>
+        <div class="tool-popover">
+            <div class="tool-popover-inner">
+                <div class="img"><img src="//7n.w3cschool.cn/statics/images/w3c/mp-qrcode.png" alt="微信公众号" width="140" height="140"></div>
+                <p>扫码关注 领资料包</p>
+            </div>
+        </div>
+    </div>
+    <div class="tool feedback" data-module="page" onclick="showDialogBox(this)">
+        <div class="tool-inner">
+            <div class="tool-icon"></div>
+            <div>意见反馈</div>
+        </div>
+    </div>
+    <div class="tool service">
+        <a href="/help" target="_blank">
+            <div class="tool-inner">
+                <div class="tool-icon"></div>
+                <div>帮助中心</div>
+            </div>
+        </a>
+    </div>
+    <div class="tool backtop" data-visibility="50">
+        <div class="tool-inner">
+            <div class="tool-icon"></div>
+            <div>返回顶部</div>
+        </div>
+    </div>
+</div>
+<!-- m端底部 -->
+<div class="bar nav-footer">
+    <p class="footer-copyright">
+        &copy;w3cschool编程狮<a href="https://beian.miit.gov.cn/" external target="_blank" rel="nofollow" class="footer-record">闽ICP备15016281号-3</a></p>
+    <p>违法和不良信息举报电话：173-0602-2364<span style="padding-left: 10px;">|</span><a style="margin-left: 10px;" href="mailto:jubao@eeedong.com">举报邮箱：jubao@eeedong.com</a></p>
+    <!-- <p class="footer-link">
+    <a href="//www.w3cschool.cn" onclick="gotoPcSite();return false;" external>PC版</a>
+    <a href="/disclaimer" external>免责声明</a>
+    <a href="/sitemap" external>网站地图</a>
+    <a href="/archives" external>文章存档</a>
+    </p> -->
+</div>
+<script src="/statics/utils/dom/scroll.js" type="text/javascript"></script>
+<script src="https://7n.w3cschool.cn/statics/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="//www.w3cschool.cn/statics/js/commonfooter.js?v=0.1" type="text/javascript"></script>
+<script src="//www.w3cschool.cn/statics/core/ajaxdo.core.js" type="text/javascript"></script>
+<script src="https://7n.w3cschool.cn/statics/modules/photoswipe/photoswipe.min.js" type="text/javascript"></script>
+<script src="https://7n.w3cschool.cn/statics/modules/photoswipe/photoswipe-ui-default.min.js" type="text/javascript"></script>
+<script src="//www.w3cschool.cn/statics/js/clipboard.js" type="text/javascript"></script>
+<script>
+var phpData = {  aid: '72592', likeNum: '2' };
+var isAppOpen = '0';
+var platform = '';
+</script>
+<script src="/statics/js/article.js?v=2.7" type="text/javascript"></script>
+</html>
